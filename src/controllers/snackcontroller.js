@@ -29,8 +29,50 @@ promise.catch(error => {
 })
 }
 
+createSnack = (req, res, next) => {
+  console.log(req.body);
+  let promise = model.createSnack(req.body)
+
+  promise.then(result => {
+    return result.error ? next(result) : res.status(200).json(result)
+  })
+
+  promise.catch(error => {
+    next(error)
+  })
+}
+
+updateSnackById = (req, res, next) => {
+  let id = req.params.id
+  let promise = model.updateSnackById(id, req.body)
+
+  promise.then(result => {
+    return result.error ? next(result) : res.status(200).json(result)
+  })
+
+  promise.catch(error => {
+    next(error)
+  })
+}
+
+deleteSnackById = (req, res, next) => {
+  let id = req.params.id
+  let promise = model.deleteSnackById(id)
+
+  promise.then(result => {
+    return result.error ? next(result) : res.status(204).json(result)
+  })
+
+  promise.catch(error => {
+    next(error)
+  })
+}
+
 
 module.exports = {
   getAllSnacks,
-  getSnackById
+  getSnackById,
+  createSnack,
+  updateSnackById,
+  deleteSnackById
 }

@@ -21,7 +21,39 @@ const getSnackById = (id) => {
   })
 }
 
+const createSnack = (body) => {
+  snack = snacksQuery.createSnack(body)
+  return snack.then(result => {
+    return !result
+      ? { error: 'error creating snack', status: 500 }
+      : result
+  })
+}
+
+const undateSnackById = (id, body) => {
+  snack = snacksQuery.undateSnackById(id, body)
+
+  return snack.then(result => {
+    return !result
+      ? { error: 'error updating snack', status: 500 }
+      : result
+  })
+}
+
+const deleteSnackById = (id) => {
+  snack = snacksQuery.deleteSnackById(id)
+
+  return snack.then(result => {
+    return !result
+      ? { error: 'error deleting snack', status: 500 }
+      : result
+  })
+}
+
 module.exports = {
   getAllSnacks,
-  getSnackById
+  getSnackById,
+  createSnack,
+  updateSnackById,
+  deleteSnackById
 }
