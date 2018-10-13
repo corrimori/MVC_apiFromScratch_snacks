@@ -1,11 +1,11 @@
 const knex = require('./db')
 
 getAllSnacks = () => {
-  return knex('snacks').orderBy('created_at', 'desc')
+  return knex('newsnacks').orderBy('created_at', 'desc')
 }
 
 getSnackById = (id) => {
-  return knex('snacks').where('id', id)
+  return knex('newsnacks').where('id', id)
 }
 
 module.exports = {

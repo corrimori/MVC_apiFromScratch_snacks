@@ -20,3 +20,8 @@ const getSnackById = (id) => {
       : result
   })
 }
+
+module.exports = {
+  getAllSnacks,
+  getSnackById
+}

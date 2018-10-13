@@ -3,7 +3,7 @@ module.exports = {
     client: 'pg',
     connection: {
       host: 'localhost',
-      database: 'snackShop'
+      database: 'newsnacks'
     },
     migrations: {
       directory: './db/migrations'
@@ -29,7 +29,7 @@ module.exports = {
     client: 'pg',
     connection: {
       host: 'localhost',
-      database: 'snackShop_test'
+      database: 'newsnacks_test'
     },
     migrations: {
       directory: './db/migrations'
